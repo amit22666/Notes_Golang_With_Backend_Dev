@@ -1,0 +1,3 @@
+ketan coding
+How to structure your go application
+https://www.youtube.com/watch?v=MpFog2kZsHk&list=PL7g1jYj15RUPjxpD_PDt8L7IlA-VpT0t8&index=1&pp=iAQB
