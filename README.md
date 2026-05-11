@@ -25,6 +25,11 @@ A structured collection of Go programming notes covering concurrency, design pat
 | 14 | [Factory Method Pattern](14%20go-factory-method-pattern-notes.md) | Design Patterns | [Watch](https://www.youtube.com/watch?v=y0HRazQsvUY) |
 | 15 | [Abstract Factory Pattern](15%20go-abstract-factory-pattern-notes.md) | Design Patterns | [Watch](https://www.youtube.com/watch?v=F9tQ46YkQLU) |
 | 16 | [Builder Pattern](16%20go-builder-pattern-notes.md) | Design Patterns | [Watch](https://www.youtube.com/watch?v=oP76NM4qZhw) |
+| 17 | [Introduction to REST APIs](17%20go-rest-api-introduction-notes.md) | Backend / Web APIs | [Watch](https://www.youtube.com/watch?v=Rj-kJeJqU1c) |
+| 18 | [All HTTP Status Codes Explained](18%20go-http-status-codes-notes.md) | Backend / HTTP | [Watch](https://www.youtube.com/watch?v=Sqhmv8ucjUo) |
+| 19 | [Echo Framework — Part 1](19%20go-echo-framework-part1-notes.md) | Web Framework | [Watch](https://www.youtube.com/watch?v=2dg0qMMC8F4) |
+| 20 | [Echo Framework — Part 2](20%20go-echo-framework-part2-notes.md) | Web Framework | [Watch](https://www.youtube.com/watch?v=dS7__u7GHxM) |
+| 21 | [JWT — JSON Web Tokens](21%20go-jwt-notes.md) | Auth / Security | [Watch](https://www.youtube.com/watch?v=c-tJRpAOJhk) |
 
 ---
 
@@ -36,6 +41,7 @@ A structured collection of Go programming notes covering concurrency, design pat
 | [Golang in X Seconds](https://www.youtube.com/playlist?list=PL7g1jYj15RUMMCMDYPyZHN3CaWbt3Rl5y) | Quick bite-sized Go concept videos |
 | [Design Patterns (Visualized)](https://www.youtube.com/playlist?list=PL7g1jYj15RUO-crQOgDV0_dVp2OaoSgye) | Creational patterns in Go |
 | [SOLID Principles in Go](https://www.youtube.com/playlist?list=PL7g1jYj15RUP6aXNe66M91sB-ek9AC3w_) | SOLID design principles with real-world Go examples |
+| [30 Days Golang Backend MasterClass](https://www.youtube.com/playlist?list=PLxBfKGlYrg-Hudnm0odvZZDn-J6BEmr1y) | Beginner to production — REST APIs, backend engineering |
 | [How to Structure a Go Application](https://www.youtube.com/watch?v=MpFog2kZsHk&list=PL7g1jYj15RUPjxpD_PDt8L7IlA-VpT0t8) | Ketan Coding — Go project structure series |
 
 ---
@@ -68,6 +74,49 @@ A structured collection of Go programming notes covering concurrency, design pat
 - Abstract Factory — family of related objects
 - Builder — step-by-step construction with `Build()`
 
+### Backend / Web APIs & HTTP (Notes 17–18)
+- REST principles: stateless, client-server, uniform interface
+- HTTP methods (GET, POST, PUT, PATCH, DELETE) → CRUD mapping
+- HTTP status codes (2xx / 4xx / 5xx)
+- URL and resource design best practices
+- JSON encoding/decoding with struct tags
+- Building REST APIs with `net/http` vs Gin
+- Routing — path params, query params, route groups
+- Request binding and input validation (`binding` tags)
+- Testing endpoints with curl
+- Echo framework — `echo.New()`, handler signature, routing, groups
+- Path params (`c.Param`), query params (`c.QueryParam`), binding (`c.Bind`)
+- Response helpers — `c.JSON`, `c.String`, `c.XML`, `c.NoContent`, `c.Redirect`
+- Built-in middleware — Logger, Recover, CORS, RateLimiter, Gzip, Secure
+- Custom middleware pattern, `c.Set/Get` for passing data between middleware/handler
+- `echo.ErrNotFound`, `echo.NewHTTPError`, custom global error handler
+- Validation with `go-playground/validator` — struct tags, field-level errors
+- Cookies — `c.SetCookie`, `c.Cookie`, delete by setting `MaxAge=-1`
+- Request/response headers — `c.Request().Header.Get`, `c.Response().Header().Set`
+- File upload — single (`c.FormFile`) and multiple (`c.MultipartForm`)
+- Static files — `e.Static("/prefix", "dir")`
+- JWT middleware — `echojwt.WithConfig`, claims extraction from context
+- Graceful shutdown — goroutine + OS signal + `e.Shutdown(ctx)` with timeout
+- Testing Echo handlers with `httptest` — path params, JSON body, error assertions
+- HTTP status codes — all 5 families (1xx–5xx) with use cases
+- Go `net/http` status constants + `http.StatusText()`
+- REST API decision guide (which code to return when)
+- 401 vs 403, 400 vs 422, 404 vs 410 distinctions
+- Common status code mistakes to avoid
+
+### Auth / Security (Note 21)
+- JWT structure — header, payload (claims), signature
+- Standard registered claims (`exp`, `iat`, `sub`, `iss`, `aud`, `jti`)
+- HS256 (symmetric) vs RS256 (asymmetric) — when to use each
+- `golang-jwt/jwt/v5` — generate, sign, parse, validate tokens
+- Custom claims struct vs `MapClaims` — type-safe approach
+- All JWT error types and error handling patterns
+- Access token (15 min) + refresh token (7 days) pattern
+- Token revocation — Redis blacklist with `jti`
+- JWT middleware for Echo — `echo-jwt` package + custom middleware
+- Algorithm confusion attack and how to prevent it
+- Security best practices — env vars, HTTPS, `HttpOnly` cookies, RS256
+
 ### Career Roadmap (Note 00)
 - Full 11-phase learning path: Fundamentals → Microservices → DevOps
 - Portfolio project ideas
@@ -96,4 +145,9 @@ A structured collection of Go programming notes covering concurrency, design pat
 14 → Factory Method
 15 → Abstract Factory
 16 → Builder
+17 → Introduction to REST APIs
+18 → All HTTP Status Codes
+19 → Echo Framework Part 1
+20 → Echo Framework Part 2
+21 → JWT (JSON Web Tokens)
 ```
